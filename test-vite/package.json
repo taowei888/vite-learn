@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
+  "type": "module",
   "scripts": {
-    "dev": "vite"
+    "dev": "vite",
+    "serve": "vite",
+    "build": "vite build"
   },
   "keywords": [],
   "author": "",
