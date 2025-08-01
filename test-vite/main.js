@@ -5,3 +5,8 @@
 
 
 import * as request from "./request.js"
+
+import "./index.css"
+import "./componentB.js"
+
+import "./componentA.js"
