@@ -7,6 +7,9 @@
 import * as request from "./request.js"
 
 import "./index.css"
-import "./componentB.js"
 
 import "./componentA.js"
+// import "./componentB.js"
+
+// import les from "./index.module.less"
+// console.log('les',les)

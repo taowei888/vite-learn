@@ -61,7 +61,7 @@ export default defineConfig({
             //   - 便于识别和调试特定项目的样式
             // 示例：设置 "hello" 后，哈希值会基于 "hello" + 文件内容生成
             // 最终效果：componentA__footer__xyz12（其中 xyz12 基于 "hello" + CSS内容生成）
-            hashPrefix: "hello",
+            // hashPrefix: "hello",
 
             // 全局模块路径配置
             // 作用：指定哪些 CSS 模块文件应该被视为全局样式，不进行类名哈希化处理
@@ -71,7 +71,7 @@ export default defineConfig({
             //   - 过渡期间，部分文件暂时不使用 CSS Modules 功能
             // 配置效果：'./componentB.module.css' 中的类名将保持原样，不会被哈希化
             // 注意：即使在此配置，文件仍需要通过 CSS Modules 方式导入才能正常工作
-            globalModulePaths: ['./componentB.module.css'],
+            // globalModulePaths: ['./componentB.module.css'],
         },
         preprocessorOptions: { // key + config key代表预处理器名称
             less: { // 整个配置对象最终会给到less的执行参数（全局参数）
@@ -93,7 +93,7 @@ export default defineConfig({
                 // 优势：无需在每个文件中重复定义常用变量，便于主题管理
                 // 示例：在任意 Less 文件中可以使用 @mainColor 获取 'red' 值
                 globalVars: {
-                    mainColor: 'red'  // 定义全局主色调变量
+                    mainColor: 'grey'  // 定义全局主色调变量
                 },
 
                 // Less 开发环境 Source Map 配置
