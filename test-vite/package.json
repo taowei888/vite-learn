@@ -17,6 +17,7 @@
     "loadsh": "^0.0.4"
   },
   "devDependencies": {
+    "postcss-preset-env": "^10.2.4",
     "vite": "^7.0.6"
   }
 }

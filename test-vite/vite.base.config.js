@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-
+import postcssPresetEnv from "postcss-preset-env"
 export default defineConfig({
     // 环境变量前缀配置
     // 作用：只有以 'ENV' 开头的环境变量才会被暴露给客户端代码
@@ -106,7 +106,13 @@ export default defineConfig({
                 // 注意：只在开发环境生效，不会影响生产构建
                 devSourceMap: true,
             }
-        }
+        },
+
+        // 不配置这个选项 直接在项目根目录下建一个postcss.config.css 也能生效
+        // 这里的选项优先级更高
+        // postcss: {
+        //     plugins: [postcssPresetEnv()]
+        // }
     }
 })
 

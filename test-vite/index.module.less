@@ -2,8 +2,18 @@
 @import './variables.less';
 
 .content {
+    width: 400px;
     .main {
         background-color: @mainColor;
+        // 限制最大最小宽度
+        // postcss-preset-env帮助去做语法降级，vite内部有一个主流浏览器支持表
+        // width: max(100px, min(50%, 200px));
+        // 加前缀
+        //     -webkit-user-select: none;
+        //     -moz-user-select: none;
+        //     user-select: none;
+        width: clamp(100px, 50%, 200px);
+        user-select: none;
     }
 }
 
