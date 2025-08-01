@@ -3,7 +3,7 @@ import componentA from "./componentA.module.css"
 console.log('componentA', componentA)
 
 import componentLess from "./index.module.less"
-console.log('componentLess', componentLess)
+// console.log('componentLess', componentLess)
 
 
 const div = document.createElement("div")

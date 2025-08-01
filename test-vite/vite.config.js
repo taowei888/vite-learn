@@ -72,7 +72,7 @@ export default defineConfig(({ command, mode }) => {
     // 第三个参数是环境变量文件名，比如可以传 .envA
     // 不传默认 .env 
     const env = loadEnv(mode, process.cwd(), '')
-    console.log('env=====', env)
+    // console.log('env=====', env)
 
     return envResolver[command]()
 })
