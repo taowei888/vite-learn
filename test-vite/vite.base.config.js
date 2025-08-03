@@ -125,7 +125,7 @@ export default defineConfig({
         //     plugins: [postcssPresetEnv()]
         // }
     },
-    
+
     // 构建配置
     build: {
         // Rollup 构建选项
@@ -169,5 +169,7 @@ export default defineConfig({
         // 好处：保持构建产物目录结构清晰，便于CDN部署
         assetsDir: "static"
     },
+
+    plugins: []
 })
 
