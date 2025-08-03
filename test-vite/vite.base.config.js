@@ -1,4 +1,4 @@
-import { defineConfig } from "vite";
+import { defineConfig, rollupVersion } from "vite";
 import path from 'node:path'
 import { fileURLToPath, URL } from 'node:url'
 import postcssPresetEnv from "postcss-preset-env"
@@ -124,6 +124,50 @@ export default defineConfig({
         // postcss: {
         //     plugins: [postcssPresetEnv()]
         // }
-    }
+    },
+    
+    // 构建配置
+    build: {
+        // Rollup 构建选项
+        // 作用：配置底层 Rollup 打包器的行为
+        // Vite 在生产构建时使用 Rollup 进行打包
+        rollupOptions: {
+            // 输出配置
+            output: {
+                // 静态资源文件命名规则
+                // 作用：定义图片、字体、CSS等静态资源的文件名格式
+                // 格式说明：
+                //   - [hash]: 内容哈希值，用于缓存控制
+                //   - [name]: 原始文件名
+                //   - [ext]: 文件扩展名
+                // 示例：image.png → a1b2c3d4.image.png
+                // 优势：哈希值变化时浏览器会重新下载，不变化时使用缓存
+                assetFileNames: '[hash].[name].[ext]',
+            },
+        },
+        
+        // 静态资源内联阈值
+        // 作用：控制小文件是否被内联为 base64 格式
+        // 单位：字节（bytes）
+        // 4096 = 4KB，小于此大小的文件会被转换为 base64 内联到代码中
+        // 优势：减少 HTTP 请求数量，提升加载性能
+        // 劣势：增加代码体积，影响缓存效果
+        // 默认值：4096 (4KB)
+        assetsInlineLimit: 4096, //4kb
+        
+        // 构建输出目录
+        // 作用：指定构建产物的输出文件夹
+        // 默认值：'dist'
+        // 这里自定义为 'testDist'，避免与其他项目冲突
+        // 构建时会先清空该目录，然后输出所有构建产物
+        outDir: 'testDist',
+        
+        // 静态资源子目录
+        // 作用：在输出目录中为静态资源创建子文件夹
+        // 最终路径：testDist/static/
+        // 用途：将 CSS、图片、字体等静态资源统一放在此目录下
+        // 好处：保持构建产物目录结构清晰，便于CDN部署
+        assetsDir: "static"
+    },
 })
 
