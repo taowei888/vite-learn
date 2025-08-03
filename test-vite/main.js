@@ -4,12 +4,25 @@
 // console.log(count);
 
 
-import * as request from "./request.js"
+// import * as request from "./request.js"
 
-import "./index.css"
+// import "./index.css"
 
-import "./componentA.js"
+// import "./componentA.js"
 // import "./componentB.js"
 
 // import les from "./index.module.less"
 // console.log('les',les)
+
+import './src/imageLoader'
+
+import jsonFile from './src/assets/json/index.json'
+
+
+// 导出一个对象
+// 如果没有使用vite 其他构件工具中则会导出一个字符串
+console.log('jsonFile', jsonFile) 
+
+// 具名导出 利于树摇
+import { name } from './src/assets/json/index.json'
+console.log('name', name) 

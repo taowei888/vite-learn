@@ -1,6 +1,17 @@
 import { defineConfig } from "vite";
+import path from 'node:path'
+import { fileURLToPath, URL } from 'node:url'
 import postcssPresetEnv from "postcss-preset-env"
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
 export default defineConfig({
+    resolve: {
+        alias: {
+            "@": path.resolve(__dirname, './src'),
+            "@assets": path.resolve(__dirname, './src/assets')
+        }
+    },
     // 环境变量前缀配置
     // 作用：只有以 'ENV' 开头的环境变量才会被暴露给客户端代码
     // 默认值：'VITE_'，这里自定义为 'ENV'
