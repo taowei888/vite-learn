@@ -1,1 +1,1 @@
-import './APP.vue'
+import "@/test.js";
