@@ -2,6 +2,7 @@ import { defineConfig, rollupVersion } from "vite";
 import path from 'node:path'
 import { fileURLToPath, URL } from 'node:url'
 import postcssPresetEnv from "postcss-preset-env"
+import viteCompression from 'vite-plugin-compression';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
@@ -145,7 +146,7 @@ export default defineConfig({
                 assetFileNames: '[hash].[name].[ext]',
             },
         },
-        
+
         // 静态资源内联阈值
         // 作用：控制小文件是否被内联为 base64 格式
         // 单位：字节（bytes）
@@ -154,14 +155,14 @@ export default defineConfig({
         // 劣势：增加代码体积，影响缓存效果
         // 默认值：4096 (4KB)
         assetsInlineLimit: 4096, //4kb
-        
+
         // 构建输出目录
         // 作用：指定构建产物的输出文件夹
         // 默认值：'dist'
         // 这里自定义为 'testDist'，避免与其他项目冲突
         // 构建时会先清空该目录，然后输出所有构建产物
         outDir: 'testDist',
-        
+
         // 静态资源子目录
         // 作用：在输出目录中为静态资源创建子文件夹
         // 最终路径：testDist/static/
@@ -170,6 +171,8 @@ export default defineConfig({
         assetsDir: "static"
     },
 
-    plugins: []
+    plugins: [
+        viteCompression()
+    ]
 })
 
