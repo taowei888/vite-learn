@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": [
+      "ES2017",
+      "DOM"
+    ],
+    "allowSyntheticDefaultImports": true
+  }
+}
